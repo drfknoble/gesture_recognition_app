@@ -24,13 +24,14 @@ The repository is organised as follows:
 /src
     /saved_models
         /MobileNet_V3_Small_Weights.pth
+        ...
     app.py
 LICENCE
 README.md
 requirements.txt
 ```
 
-`/src` contains `/saved_models` and `app.py`. `/saved_models` contains `MobileNet_V3_Small_Weights.pth`, a model fine-tuned to classify gestures into one of {Fist, One, Two, Three, Four, Five}. `app.py` loads the model, grabs frames from a camera, makes a prediction, and displays an annotated frame to the user.
+`/src` contains `/saved_models` and `app.py`. `/saved_models` contains `MobileNet_V3_Small_Weights.pth`, a model fine-tuned to classify gestures into one of the following gestures: Fist, One, Two, Three, Four, or Five. `app.py` loads the model, grabs frames from a camera, makes a prediction, and displays an annotated frame to the user.
 
 ## Getting Started
 
@@ -58,6 +59,26 @@ python app.py
 ```
 
 Figure 1 illustrates the output you should expect to see.
+
+## Command Line Arguments
+
+`app.py` accepts the following arguments:
+
+```console
+usage: app.py [-h] [-m MODEL] [-c CLASSES] [-d DEVICE] [-dw DRAW]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -m MODEL, --model MODEL 
+  -c CLASSES, --classes CLASSES
+  -d DEVICE, --device DEVICE
+  -dw DRAW, --draw DRAW      
+```
+
+`--model` sets the model's file path.
+`--classes` sets the models's list of class labels.
+`--device` sets the device used for inference.
+`--draw` sets whether hand landmarks are drawn.
 
 ## Sample Output
 
