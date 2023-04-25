@@ -108,7 +108,7 @@ def classify(frame, model, classes, device):
     return result
 
 arg_parser = argparse.ArgumentParser()
-arg_parser.add_argument('-m', '--model', default='./saved_models/MobileNet_V3_Small_Weights.pth', type=str, help='Model')
+arg_parser.add_argument('-m', '--model', default='../data/saved_models/MobileNet_V3_Small_Weights.pth', type=str, help='Model')
 arg_parser.add_argument('-c', '--classes', default=['fist', 'one', 'two', 'three', 'four', 'five'], type=list, help='Classes')
 arg_parser.add_argument('-d', '--device', default='cuda:0', type=str, help='Device')
 arg_parser.add_argument('-dw', '--draw', default=False, type=bool, help='Draw')
@@ -210,7 +210,7 @@ def main():
 
         if key == ord('s'):
             print('saved')
-            cv.imwrite(f"./src/data/drawing_{time.time():.2f}.jpg", drawing)
+            cv.imwrite(f"../data/drawing_{time.time():.2f}.jpg", drawing)
 
     cv.destroyAllWindows()
     camera.release()

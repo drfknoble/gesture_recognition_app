@@ -18,20 +18,38 @@ Here, I share the source code used to show that a fine-tuned, state-of-the-art, 
 The repository is organised as follows:
 
 ```console
-/img
-    /app_fist.jpg
+/data
+    /saved_models
+        MobileNet_V3_Small_Weights.pth
+        ...
+    /train
+        /00_fist
+            00.jpg
+            ...
+        ...
+    /val
+        /00_fist
+            00.jpg
+            ...
+        ...
+/doc
+    /img
+        app_fist.jpg
+        ...
+/scripts
+    test_network.ipynb
     ...
 /src
-    /saved_models
-        /MobileNet_V3_Small_Weights.pth
-        ...
     app.py
 LICENCE
 README.md
 requirements.txt
 ```
 
-`/src` contains `/saved_models` and `app.py`. `/saved_models` contains `MobileNet_V3_Small_Weights.pth`, a model fine-tuned to classify gestures into one of the following gestures: Fist, One, Two, Three, Four, or Five. `app.py` loads the model, grabs frames from a camera, makes a prediction, and displays an annotated frame to the user.
+`/data` contains `/saved_models`, `/train`, and `/val`. `/saved_models` contains the fine-tuned models. `/train` contains the images used to train the model. `/val` contains the images used to validate the model.
+`/doc` contains `/img`. `/img` contains images captured when `app.py` is running.
+`/scripts` contains scripts that can be used to view the dataset, train the model, and test the model.
+`/src` contains `app.py`. `app.py` loads the model, captures a frame from a camera, uses the model to predict which gesture is being made, annotates the frame, and displays it to the user.
 
 ## Getting Started
 
@@ -86,9 +104,9 @@ The following figure illustrates the app working. Each of the gestures is presen
 
 |     |     |     |
 |:---:|:---:|:---:|
-| ![](img/app_fist.jpg) | ![](img/app_one.jpg) | ![](img/app_two.jpg) |
+| ![](doc/img/app_fist.jpg) | ![](doc/img/app_one.jpg) | ![](doc/img/app_two.jpg) |
 | (a) | (b) | (c) |
-| ![](img/app_three.jpg) | ![](img/app_four.jpg) | ![](img/app_five.jpg) |
+| ![](doc/img/app_three.jpg) | ![](doc/img/app_four.jpg) | ![](doc/img/app_five.jpg) |
 | (d) | (e) | (f) |
 
 **Figure 1**: Annotated frames captured from the app. (a) Fist; (b) One; (c) Two; (d) Three; (e) Four; and (f) Five. 
